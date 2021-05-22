@@ -74,7 +74,7 @@ let Home = {
     let theme = document.querySelector('.theme');
 
     theme.addEventListener('click', function() {
-      if(theme.textContent == "dark mode") {
+      if(theme.textContent == "Dark mode") {
          theme.textContent = 'Light mode';
       } else {
         theme.textContent = 'Dark mode';
