@@ -13,6 +13,7 @@ let Home = {
     const jokes = await getRandonJoke();
 
     let view = `
+        <span class="theme">Light mode</span>
         <section class="container">
           <h1>Chuck Norris Jokes</h1>
           <div class="container">
@@ -37,6 +38,8 @@ let Home = {
   },
 
   after_render: async () => {
+      Home.toggleTheme()
+
       const form = document.forms.form;
 
       form.addEventListener("submit", (e) => {
@@ -66,6 +69,21 @@ let Home = {
           });
       });
   },
+
+  toggleTheme() {
+    let theme = document.querySelector('.theme');
+
+    theme.addEventListener('click', function() {
+      if(theme.textContent == "dark mode") {
+         theme.textContent = 'Light mode';
+      } else {
+        theme.textContent = 'Dark mode';
+      }
+      
+      let body = document.querySelector('body')
+      body.classList.toggle('light');
+    })
+  }
 }
 
 export default Home;
